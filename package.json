@@ -1,0 +1,20 @@
+{
+  "name": "flood-fill",
+  "version": "1.0.0",
+  "description": "various implementations of flood-fill",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "live-server --port=3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukeGarrigan/flood-fill.git"
+  },
+  "author": "lg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LukeGarrigan/flood-fill/issues"
+  },
+  "homepage": "https://github.com/LukeGarrigan/flood-fill#readme"
+}
