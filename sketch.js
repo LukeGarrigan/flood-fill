@@ -15,12 +15,14 @@ function setup() {
   sizeOfSquare = width /  GRID_SIZE;
   strokeWeight(1);
   frameRate(60);
-  algorithm = new StackFill();
+  algorithm = new SpanFill();
   select = createSelect();
+  select.option('Span');
   select.option('Stack');
   select.option('Queue');
   select.option('Recursive');
   select.changed(() => {
+    setGrid();
     let item = select.value();
 
     if (item === 'Recursive') {
@@ -35,17 +37,26 @@ function setup() {
       algorithm = new QueueFill();
     }
 
+    if (item === 'Span') {
+      algorithm = new SpanFill();
+    }
+
   }) 
   
+  setGrid();
+}
+
+
+function setGrid() {
   for (let i = 0; i < GRID_SIZE; i++) {
     grid[i] = [];
     for (let j = 0; j < GRID_SIZE; j++) {
-        grid[i][j] = '#FFFFFF';
+      grid[i][j] = '#FFFFFF';
     }
   }
+
   drawShape();
 }
-
 
 function draw() {
   background(220);
