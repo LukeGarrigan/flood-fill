@@ -33,13 +33,9 @@ class SpanFill {
     }
 
     scan(lx, rx, y, stack, colour) {
-        let added = false;
         for (let i = lx; i < rx; i++) {
-            if (!isValidSquare(i, y, colour)) {
-                added = false;
-            } else {
+            if (isValidSquare(i, y, colour)) {
                 stack.push({x: i, y: y, colour: colour});
-                added = true;
             }
         }
     }
