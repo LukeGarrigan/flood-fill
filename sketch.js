@@ -76,7 +76,7 @@ function isValidSquare(x, y, colour) {
 
 async function mousePressed() {
   let x = 20;
-  let y = 20;
+  let y = 30;
   if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
     let colour = grid[x][y];
     algorithm.fill( x, y, colour);
@@ -85,22 +85,48 @@ async function mousePressed() {
 
 
 function drawShape() {
-  for (let i = 5; i < GRID_SIZE - 5; i++) {
-    grid[i][5] = '#000000';
-  }
-  for (let i = 5; i < GRID_SIZE - 5; i++) {
-    grid[5][i] = '#000000';
+  let gap = 5;
+
+  for (let i = gap; i < GRID_SIZE - gap; i++) {
+    grid[i][gap] = '#000000';
+    grid[gap][i] = '#000000';
+    grid[GRID_SIZE - (gap + 1)][i] = '#000000';
+    grid[i][GRID_SIZE - (gap + 1)] = '#000000';
   }
 
-  for (let i = 5; i < GRID_SIZE - 5; i++) {
-    grid[GRID_SIZE - 6][i] = '#000000';
+  for (let i = 0; i < 11; i++) {
+    // left
+    grid[i + gap + 5][10] = '#000000';
+    grid[i + gap + 5][20] = '#000000';
+    grid[10][i + gap + 5] = '#000000';
+    grid[20][i + gap + 5] = '#000000';
+
+    // right
+    grid[GRID_SIZE - (i + gap + 6)][10] = '#000000';
+    grid[GRID_SIZE - (i + gap + 6)][20] = '#000000';
+    grid[GRID_SIZE - (gap + 6)][i + gap + 5] = '#000000';
+    grid[GRID_SIZE - (gap + 16)][i + gap + 5] = '#000000';
   }
 
-  for (let i = 5; i < GRID_SIZE - 5; i++) {
-    grid[i][GRID_SIZE - 6] = '#000000';
+
+  // mouth
+  for (let i = 0; i < 30; i++) {
+    grid[gap + 5 + i] [34] = '#000000';
+    grid[gap + 5 + i] [39] = '#000000';
   }
 
-  for (let i = 10; i < GRID_SIZE - 10; i++) {
-    grid[i][25] = '#000000';
+  grid[24][34] = '#FFFFFF'
+  grid[25][34] = '#FFFFFF'
+
+  for (let i = 0; i < 6; i++) {
+    grid[gap + 5][34 + i] = '#000000';
+    grid[GRID_SIZE - (gap + 5)][34 + i] = '#000000';
+  }
+
+  // nose
+
+  for (let i = 0; i < 6; i++) {
+    grid[i + gap + 17][26] = '#000000';
+    // grid[i + gap + 16][27] = '#000000';
   }
 }
