@@ -75,11 +75,11 @@ function isValidSquare(x, y, colour) {
 }
 
 async function mousePressed() {
-  let x = 20;
-  let y = 30;
   if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+    let x = floor(mouseX / 14);
+    let y = floor(mouseY / 14);
     let colour = grid[x][y];
-    algorithm.fill( x, y, colour);
+    algorithm.fill(x, y, colour);
   }
 }
 
