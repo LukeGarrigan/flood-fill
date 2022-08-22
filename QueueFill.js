@@ -1,15 +1,11 @@
 class QueueFill {
 
-    constructor() {
-
-    }
-
     async fill(x, y, colour) {
         let queue = [{ x, y, colour }];
 
         while (queue.length > 0) {
             let current = queue.shift(0);
-            await new Promise(r => setTimeout(r, 1));
+            if (!performanceTest) await new Promise(r => setTimeout(r, 0.1));
 
             for (let i = 0; i < directions.length; i++) {
 

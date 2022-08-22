@@ -9,7 +9,7 @@ class StackFill {
 
         while (stack.length > 0) {
             let current = stack.pop();
-            await new Promise(r => setTimeout(r, 10));
+            if (!performanceTest) await new Promise(r => setTimeout(r, 2));
 
             for (let i = 0; i < directions.length; i++) {
 

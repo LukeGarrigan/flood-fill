@@ -15,18 +15,17 @@ class SpanFill {
             while (isValidSquare(lx, y, colour)) {
                 grid[lx][y] = '#367588'
                 lx = lx -1;
-                await new Promise(r => setTimeout(r, 1));
+
+                if (!performanceTest) await new Promise(r => setTimeout(r, 1));
             }
 
             let rx = x + 1;
             while (isValidSquare(rx, y, colour)) {
                 grid[rx][y] = '#367588'
                 rx = rx + 1;
-                await new Promise(r => setTimeout(r, 1));
-
+                if (!performanceTest) await new Promise(r => setTimeout(r, 1));
             }
             this.scan(lx, rx - 1, y + 1, stack, colour);
-
             this.scan(lx, rx - 1, y - 1, stack, colour)
         }
         return;
